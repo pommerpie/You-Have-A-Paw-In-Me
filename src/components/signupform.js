@@ -1,12 +1,20 @@
 // src/components/SignupForm.js
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const SignupForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSignup = () => {
-    // Implement signup logic using the state values (email and password)
+  const handleSignup = async () => {
+    try {
+      const response = await axios.post('/api/signup', { email, password });
+      console.log(response.data);
+      //want to add success message and redirect after user sign up
+    } catch (error) {
+      console.error('Signup error:', error.response.data.error);
+      setError(error.response.data.error);
+    }
   };
 
   return (
@@ -22,6 +30,7 @@ const SignupForm = () => {
         <button type="button" onClick={handleSignup}>
           Create Account
         </button>
+        {error && <p>{error}</p>}
       </form>
     </div>
   );
