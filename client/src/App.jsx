@@ -28,8 +28,9 @@ function App() {
     // </Router>
     <div>
       <Header />
+      <LoginPage/>
        <LandingPage /> 
-      {/* <Footer /> */}
+     <Footer /> 
     </div>
   );
 }

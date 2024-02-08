@@ -1,5 +1,6 @@
 // src/pages/SignupPage.js
 import React from 'react';
+import Signupform from '../components/signupform';
 
 const SignupPage = () => {
   // Implement signup logic here
@@ -7,7 +8,7 @@ const SignupPage = () => {
   return (
     <div>
       <h2>Create Account</h2>
-      {/* Add signup form */}
+     <Signupform/>
     </div>
   );
 };
