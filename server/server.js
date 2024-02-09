@@ -3,12 +3,14 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const axios = require('axios');
-const { ApolloServer } = require('@apollo/server');
+const { ApolloServer, gql } = require('@apollo/server');
 //const { startStandaloneServer } = require('@apollo/server/standalone');
 const {expressMiddleware} = require('@apollo/server/express4');
 const { typeDefs, resolvers } = require('./schemas');
 const { authMiddleware } = require('./utils/auth');
 const db = require('./config/connection');
+const {GraphQLClient} = require('graphql-request');
+require('dotenv').config();
 
 const server = new ApolloServer({
     typeDefs,
@@ -17,18 +19,20 @@ const server = new ApolloServer({
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+const apiKey = process.env.API_KEY;
 
-app.get('/fetch-data', (req, res) => {
+const client = new GraphQLClient('https://partners.every.org/v0.2/search/pets?apiKey=');
 
-    axios.get('https://api.example.com/data')
-    .then(response => {
-        res.json(response.data); 
-    })
-    .catch(error => {
-        console.error('Error fetching data:', error);
-        res.status(500).json({ error: 'Failed to fetch data' }); 
-    });
-});
+const query = `query {
+    getSomeData {
+      field1
+      field2
+    }
+  }`;
+
+client.request(query)
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
 
 const startApolloServer = async () => {
     await server.start();
