@@ -8,6 +8,7 @@ import { ADD_USER } from '../utils/mutations';
 const SignupForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
 
   const handleSignup = async () => {
     try {
@@ -33,6 +34,9 @@ const SignupForm = () => {
         <button type="button" onClick={handleSignup}>
           Create Account
         </button>
+
+        {error && <p>{error}</p>} {/* Display error if it exists */}
+         
       </form>
     </div>
   );
