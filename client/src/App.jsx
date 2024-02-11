@@ -1,38 +1,48 @@
 // src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Routes, Link } from 'react-router-dom';
 import Header from './components/header';
 import Footer from './components/footer';
 import LandingPage from './pages/landingpage';
-import LoginPage from './pages/loginpage';
-import SignupPage from './pages/signuppage';
-import SearchPage from './pages/searchpage';
-import ResultsPage from './pages/resultspage';
-import DonationPage from './pages/donationpage';
+
+import { Outlet } from 'react-router-dom';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+
+
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
 
 function App() {
   return (
-    // <Router>
-    //   <div>
-    //     <Header />
-    //     <Switch>
-    //       <Route path="/" exact component={LandingPage} />
-    //       <Route path="/login" component={LoginPage} />
-    //       <Route path="/signup" component={SignupPage} />
-    //       <Route path="/search" component={SearchPage} />
-    //       <Route path="/results" component={ResultsPage} />
-    //       <Route path="/donate" component={DonationPage} />
-    //     </Switch>
-    //     <Footer />
-    //   </div>
-    // </Router>
-    <div>
+    <ApolloProvider client={client}>
       <Header />
-      <LoginPage/>
-       <LandingPage /> 
+      <Outlet />
+      <LandingPage /> 
      <Footer /> 
-    </div>
+    </ApolloProvider>
   );
 }
 
 export default App;
+

@@ -33,7 +33,6 @@ const SignupForm = () => {
         <button type="button" onClick={handleSignup}>
           Create Account
         </button>
-        {error && <p>{error}</p>}
       </form>
     </div>
   );
