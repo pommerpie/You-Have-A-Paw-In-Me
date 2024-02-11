@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap");
+
+/* css variables for colors */
+:root {
+  /* Primary color for buttons, links, etc. */
+  --primary-color: #45062e;
+
+  /* Secondary color for accents, highlights, etc. */
+  --secondary-color: #e5a4cb;
+
+  /* Third color for additional accents or backgrounds */
+  --third-color: #ebd2be;
+  /* Font family */
+  --font-family: "Quicksand", sans-serif;
+}
