@@ -13,11 +13,10 @@ const Header = () => {
     <header>
       <div className="logo">Therapy Animal Support Fund</div>
       <nav className={menuOpen ? 'open' : ''}>
-        <a to="/">Home</a>
-        <a to="/login">Login</a>
-        <a to="/signup">Signup</a>
-        <a to="/search">Search</a>
-        <a to="/donate">Donate</a> 
+        <a href="/">Home</a>
+        <a href="/signup">Signup</a>
+        <a href="/search">Search</a>
+        <a href="/donate">Donate</a> 
       </nav>
       <div className="menu-toggle" onClick={toggleMenu}>
         ☰

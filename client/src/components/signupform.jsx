@@ -34,7 +34,9 @@ const SignupForm = () => {
         <button type="button" onClick={handleSignup}>
           Create Account
         </button>
+
         {error && <p>{error}</p>} {/* Display error if it exists */}
+         
       </form>
     </div>
   );
