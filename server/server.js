@@ -12,44 +12,32 @@ const db = require('./config/connection');
 const {GraphQLClient} = require('graphql-request');
 require('dotenv').config();
 
+const app = express();
+const PORT = process.env.PORT || 3005;
+const apiKey = process.env.API_KEY;
+const endpoint = `https://partners.every.org/v0.2/search/pets?apiKey${apiKey}`;
+
+const client = new GraphQLClient(endpoint);
+
 const server = new ApolloServer({
     typeDefs,
     resolvers,
 });
 
-const app = express();
-const PORT = process.env.PORT || 3001;
-const apiKey = process.env.API_KEY;
-
-const client = new GraphQLClient('https://partners.every.org/v0.2/search/pets?apiKey=');
-
-const query = `query {
-    getSomeData {
-      field1
-      field2
-    }
-  }`;
-
-client.request(query)
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
-
-const startApolloServer = async () => {
-    await server.start();
-    app.use(
-        '/graphql',
-        expressMiddleware(server, {
-            context: async ({ req }) => ({ req }),
-        }),
-    );
-    db.once('open', () => {
-        app.listen(PORT, () => {
-            console.log(`API server running on port ${PORT}!`);
-        });
+server.start().then(() => {
+    server.applyMiddleware({
+        app,
+        path: '/graphql',
     });
-};
-startApolloServer();
+});
 
-// app.listen(PORT, () => {
-//     console.log(`Server is running on http://localhost:${PORT}`);
-// });
+app.use(bodyParser.json());
+
+app.post('/save-card', (req, res) => {
+    const { cardNumber, expiry, cvc } = req.body;
+    res.status(200).send('Card saved successfully');
+});
+
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
+});
