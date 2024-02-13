@@ -23,7 +23,6 @@ const SignupForm = () => {
 
   return (
     <div>
-      <h2>Create Account</h2>
       <form>
         <label>Email:</label>
         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />

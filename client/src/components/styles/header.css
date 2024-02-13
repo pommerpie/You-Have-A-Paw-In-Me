@@ -4,17 +4,23 @@
 .top-bar {
   background-color: #f8f9fa;
   padding: 5px 0;
+  font-size: 19px;
+  color: #333;
+  
 }
 
 .top-bar .nav-link {
   color: #333;
   margin-right: 10px;
+  display: flex;
+  align-items: center;
 }
 
 /* Logo */
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
+  opacity: 1;
 }
 
 /* Menu */
@@ -22,21 +28,55 @@
   color: #333;
   font-weight: 500;
   margin: 0 10px;
+  transition: color 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover {
-  color: #007bff; /* Change color on hover */
+  color: #9e7daf; /* Change color on hover */
 }
 
 /* Donate button */
 .text-right .btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
   padding: 10px 20px;
   font-weight: bold;
 }
 
 .text-right .btn-primary:hover {
-  background-color: #0056b3; /* Darker shade on hover */
-  border-color: #0056b3; /* Darker shade on hover */
+  background-color: #51b300; /* Darker shade on hover */
+  border-color: #77b300; /* Darker shade on hover */
+}
+
+.navlinks a {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.navlinks a {
+  color: #ffffff; /* Change color on hover */
+  margin-right: 10px;
+}
+
+button:hover{
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+button {
+  color: #51b300; /* Change color on hover */
+}
+
+.navlinks a:hover {
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #51b300; /* Change color on hover */
+  border-color: #77b300; /* Change color on hover */
+}
+
+.top-bar, header * {
+  z-index: 1;
 }
