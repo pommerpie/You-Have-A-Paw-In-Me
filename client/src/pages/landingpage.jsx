@@ -10,10 +10,10 @@ const LandingPage = () => {
       <h1>Welcome to Therapy Animal Support Fund</h1>
       <p className='LandAbout'>Welcome to the Therapy Animal Support Fund, where compassion meets crowdfunding
          to create a world where the healing power of therapy animals is accessible to all.
-         Our mission is simple yet profound: to make a positive impact on the lives of individuals
+         Our mission is simple: to make a positive impact on the lives of individuals
          facing physical, emotional, or mental challenges by providing them with the comfort and
          support of therapy animals. Here, you have the opportunity to be a catalyst for change
-         by contributing to our carefully curated selection of nonprofit organizations dedicated
+         by contributing to our selection of nonprofit organizations dedicated
          to bringing therapy animals to those in need. </p>
 
          <br>
