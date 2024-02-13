@@ -25,13 +25,13 @@ const server = new ApolloServer({
 });
 
 server.start().then(() => {
-    server.applyMiddleware({
-        app,
-        path: '/graphql',
-    });
+    app.use('/graphql', expressMiddleware(server, {
+        context: authMiddleware
+      }));
 });
 
-app.use(bodyParser.json());
+
+//app.use(bodyParser.json());
 
 app.post('/save-card', (req, res) => {
     const { cardNumber, expiry, cvc } = req.body;

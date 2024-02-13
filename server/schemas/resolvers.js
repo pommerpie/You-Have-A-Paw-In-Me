@@ -1,17 +1,5 @@
 const { User } = require ('../models');
 const {signToken, AuthenticationError} = require ('../utils/auth');
-const jwt = require ('jsonwebtoken');
-
-const signToken = (user) => {
-    const payload = {
-        _id: user._id,
-        email: user.email,
-        username: user.username,
-    };
-    return jwt.sign(payload, process.env.JWT_SECRET, {expiresIn: '2h'});
-}
-
-
 
 
 const resolvers = {
