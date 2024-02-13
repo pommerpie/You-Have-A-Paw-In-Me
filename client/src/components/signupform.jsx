@@ -16,10 +16,13 @@ import { ADD_USER } from '../utils/mutations';
     event.preventDefault();
 
     try {
+      console.log('sending sign up req', {email, password});
       const { data } = await addUser({
         variables: { email, password },
       });
 
+      console.log('signup response:', data);
+      
       Auth.login(data.addUser.token);
     } catch (error) {
       console.error('Signup error:', error.message);
