@@ -31,7 +31,7 @@ const SignupForm = () => {
         <label>Password:</label>
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
 
-        <button type="button" onClick={handleSignup}>
+        <button type="submit" onClick={handleSignup}>
           Create Account
         </button>
         {error && <p>{error}</p>} {/* Display error if it exists */}

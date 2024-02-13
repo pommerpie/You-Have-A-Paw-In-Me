@@ -11,7 +11,6 @@ const signToken = (user) => {
     return jwt.sign(payload, process.env.JWT_SECRET, {expiresIn: '2h'});
 }
 
-const 
 
 
 
