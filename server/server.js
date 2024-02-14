@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -9,6 +10,7 @@ const {expressMiddleware} = require('@apollo/server/express4');
 const { typeDefs, resolvers } = require('./schemas');
 const { authMiddleware } = require('./utils/auth');
 const db = require('./config/connection');
+const { User } = require('./models');
 const {GraphQLClient} = require('graphql-request');
 require('dotenv').config();
 
@@ -19,19 +21,25 @@ const endpoint = `https://partners.every.org/v0.2/search/pets?apiKey${apiKey}`;
 
 const client = new GraphQLClient(endpoint);
 
+app.use(express.json());
+app.use(cors({
+    origin: 'http://localhost:3009'
+}));
+
+
 const server = new ApolloServer({
     typeDefs,
     resolvers,
 });
 
 server.start().then(() => {
-    server.applyMiddleware({
-        app,
-        path: '/graphql',
-    });
+    app.use('/graphql', expressMiddleware(server, {
+        context: authMiddleware
+      }));
 });
 
-app.use(bodyParser.json());
+
+//app.use(bodyParser.json());
 
 app.post('/save-card', (req, res) => {
     const { cardNumber, expiry, cvc } = req.body;
@@ -40,4 +48,5 @@ app.post('/save-card', (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
+    console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
 });

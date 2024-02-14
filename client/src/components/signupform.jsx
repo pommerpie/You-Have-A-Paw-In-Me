@@ -1,42 +1,69 @@
 // src/components/SignupForm.js
 import React, { useState } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import {useMutation} from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
  import Auth from '../utils/auth';
+ import { Link } from 'react-router-dom';
 
-const SignupForm = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
+ const Signup = () => {
+  const [formState, setFormState] = useState({
+    email: '',
+    password: '',
+  });
+  const [addUser, { error, data }] = useMutation(ADD_USER);
 
-  const handleSignup = async () => {
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+
     try {
-      const response = await axios.post('/api/signup', { email, password });
-      console.log(response.data);
-      //want to add success message and redirect after user sign up
-    } catch (error) {
-      console.error('Signup error:', error.response.data.error);
-      setError(error.response.data.error);
+      const { data } = await addUser({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.addUser.token);
+    } catch (e) {
+      console.error(e);
     }
   };
 
   return (
     <div>
+
+      <h2>Create Account</h2>
+      <form onSubmit={handleFormSubmit}>
       <form>
         <label>Email:</label>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input type="email" name="email" value={formState.email} onChange={handleChange} />
 
         <label>Password:</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input type="password" name ="password" value={formState.password} onChange={handleChange} />
 
-        <button type="button" onClick={handleSignup}>
+        <button type="submit">
           Create Account
         </button>
-        {error && <p>{error}</p>} {/* Display error if it exists */}
+        {error && <p>{error.message}</p>} {/* Display error if it exists */}
+        {/* Success message */}
+        {data && !error && (
+          <p>
+            Success! You may now head{' '}
+            <Link to="/">back to the homepage.</Link>
+          </p>
+        )}
       </form>
     </div>
   );
 };
 
-export default SignupForm;
+export default Signup;
+
