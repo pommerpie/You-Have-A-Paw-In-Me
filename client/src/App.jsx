@@ -47,7 +47,7 @@ import Header from './components/header';
 import Footer from './components/footer';
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: 'http://localhost:3005/graphql',
 });
 
 
