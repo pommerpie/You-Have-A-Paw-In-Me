@@ -16,6 +16,10 @@ const resolvers = {
     Mutation: {
         addUser: async (_, { email, password }) => { // Destructure email and password from args
             try {
+                const existingUser = await User.findOne({ email });
+                if (existingUser) {
+                    throw new Error("User already exists");
+                }
                 console.log("Attempting to create user...");
                 const user = await User.create({ email, password }); // Pass email and password to User.create
                 console.log("User created successfully:", user);
