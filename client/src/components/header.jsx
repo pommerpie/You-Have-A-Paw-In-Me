@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import { Container, Row, Col, Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
 import { FaPhone, FaEnvelope, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import './styles/Header.css';
+
 import Auth from '../utils/auth';
+import coverImage from '../assets/cover/cover-image.jpg';
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -22,6 +24,7 @@ const Header = () => {
       <Navbar bg="light" expand="lg" className="top-bar">
         <Container>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
               <Nav.Link href="tel:+123456789"><FaPhone /> +1 (234) 567-89</Nav.Link>
@@ -39,6 +42,7 @@ const Header = () => {
       {/* Header */}
       <header>
         <Container>
+                <img src={coverImage} position="bottom"></img>
           <Row>
             {/* Logo */}
             <Col>
@@ -47,7 +51,7 @@ const Header = () => {
 
             {/* Menu */}
             <Col>
-              <Nav className="justify-content-center">
+              <Nav className="navlinks">
                 <Nav.Item>
                   <Nav.Link as={Link} to="/">Home</Nav.Link>
                 </Nav.Item>
@@ -77,7 +81,7 @@ const Header = () => {
             </Col>
 
             {/* Donate Button */}
-            <Col className="text-right">
+            <Col className="donateButton">
               <Button variant="primary">Donate Now</Button>
             </Col>
           </Row>

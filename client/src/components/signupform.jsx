@@ -39,8 +39,10 @@ import { ADD_USER } from '../utils/mutations';
 
   return (
     <div>
+
       <h2>Create Account</h2>
       <form onSubmit={handleFormSubmit}>
+      <form>
         <label>Email:</label>
         <input type="email" name="email" value={formState.email} onChange={handleChange} />
 
