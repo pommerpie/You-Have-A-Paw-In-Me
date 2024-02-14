@@ -1,82 +1,26 @@
-/* Header.css */
-
-/* Top bar */
-.top-bar {
-  background-color: #f8f9fa;
-  padding: 5px 0;
-  font-size: 19px;
-  color: #333;
-  
+.logo img {
+  max-width: 60px;
 }
-
-.top-bar .nav-link {
-  color: #333;
-  margin-right: 10px;
-  display: flex;
+.app-header {
   align-items: center;
-}
-
-/* Logo */
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  opacity: 1;
-}
-
-/* Menu */
-.navbar-nav .nav-link {
-  color: #333;
-  font-weight: 500;
-  margin: 0 10px;
-  transition: color 0.3s ease;
-}
-
-.navbar-nav .nav-link:hover {
-  color: #9e7daf; /* Change color on hover */
-}
-
-/* Donate button */
-.text-right .btn-primary {
-  padding: 10px 20px;
-  font-weight: bold;
-}
-
-.text-right .btn-primary:hover {
-  background-color: #51b300; /* Darker shade on hover */
-  border-color: #77b300; /* Darker shade on hover */
-}
-
-.navlinks a {
+  padding: 15px;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  transition: color 0.3s ease;
 }
-
-.navlinks a {
-  color: #ffffff; /* Change color on hover */
-  margin-right: 10px;
+.btn-container {
+  text-align: right;
 }
-
-button:hover{
-  color: #333;
-  transition: color 0.3s ease;
+.app-header .nav-link {
+  color: var(--primary-color);
 }
-
-button {
-  color: #51b300; /* Change color on hover */
+.navbar-toggler {
+  padding: 5px;
 }
-
-.navlinks a:hover {
-  color: #333;
-  transition: color 0.3s ease;
+.app-header .justify-content-center {
+  justify-content: flex-end !important;
+  align-items: flex-start;
 }
-
-.btn-primary {
-  background-color: #51b300; /* Change color on hover */
-  border-color: #77b300; /* Change color on hover */
-}
-
-.top-bar, header * {
-  z-index: 1;
+@media screen and (max-width: 768px) {
+  .app-header .btn-container {
+    display: none;
+  }
 }

@@ -1,0 +1,32 @@
+#hero {
+  min-height: 60vh;
+  padding: 15px;
+}
+#hero .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 900px;
+}
+#hero .content .sign-in__wrapper {
+  align-self: flex-start;
+}
+#hero .content .sign-in__wrapper,
+#hero .content .sign-up__wrapper {
+  flex: 1;
+}
+#hero .content {
+}
+
+@media screen and (max-width: 600px) {
+  #hero .content {
+    flex-direction: column;
+  }
+  #hero .content .sign-in__wrapper {
+    align-self: center;
+  }
+  .sign-up__wrapper {
+    border: none;
+  }
+}
