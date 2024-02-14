@@ -19,6 +19,8 @@ const endpoint = `https://partners.every.org/v0.2/search/pets?apiKey${apiKey}`;
 
 const client = new GraphQLClient(endpoint);
 
+app.use(express.json());
+
 const server = new ApolloServer({
     typeDefs,
     resolvers,
@@ -40,4 +42,5 @@ app.post('/save-card', (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
+    console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
 });
