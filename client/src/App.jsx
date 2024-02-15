@@ -12,7 +12,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    
       <>
         <Header />
         <Hero />
@@ -21,7 +20,6 @@ function App() {
         <Donation />
         <Footer />
       </>
-    
   );
 }
 
