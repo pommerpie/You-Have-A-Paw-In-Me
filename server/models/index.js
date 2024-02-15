@@ -1,11 +1,8 @@
-const user = require ('./User')
+const User = require ('./user')
 const Pet = require ('./pets')
 
 module.exports = {
-    user,
+    User,
     Pet
 }
 
-const User = require ('./User')
-
-module.exports = { User };
