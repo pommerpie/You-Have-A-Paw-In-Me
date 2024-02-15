@@ -4,7 +4,7 @@ import "./styles/donation.css"
 
 const Donation = () => {
     return (
-        <Container className='donation-component'>
+        <Container className='donation-component' id="donationSection">
             <Row className="align-items-center content-container">
                 <section className="video-container">
                     <video autoPlay muted loop>

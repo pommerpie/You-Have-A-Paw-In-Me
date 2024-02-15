@@ -21,7 +21,7 @@ const Filter = () => {
     }
 
     return (
-        <Container className='filter-component'>
+        <Container id="filterSection" className='filter-component'>
             <Row>
                 <h2>
                     Filter out some cute pets here.
