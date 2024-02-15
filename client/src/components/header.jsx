@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col, Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
 import { FaPhone, FaEnvelope, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
-import './styles/Header.css';
+import './styles/header.css';
 
 const Header = () => {
   return (
