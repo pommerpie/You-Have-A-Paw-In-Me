@@ -26,14 +26,14 @@ const Header = () => {
                     <Nav.Link as={Link} to="/">Home</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link as={Link} to="/search">Search</Nav.Link>
+                    <Nav.Link as={Link} to="/#filterSection">Search</Nav.Link>
                   </Nav.Item>
                 </Nav>
               </Navbar.Collapse>
             </Navbar>
 
             <Col className="btn-container">
-              <Button variant="primary" className='btn'>Donate Now</Button>
+              <Button variant="primary" className='btn' href="#donationSection">Donate Now</Button>
             </Col>
           </section>
         </Container>
