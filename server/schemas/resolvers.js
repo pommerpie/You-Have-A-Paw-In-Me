@@ -11,8 +11,8 @@ const jwt = require ('jsonwebtoken');
 //     };
 //     return jwt.sign(payload, process.env.JWT_SECRET, {expiresIn: '2h'});
 // }
-const User = require ('../models/User');
-const {signToken, AuthenticationError} = require ('../utils/auth');
+// const User = require ('../models/User');
+// const {signToken, AuthenticationError} = require ('../utils/auth');
 
 const resolvers = {
 
