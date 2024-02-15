@@ -11,5 +11,24 @@
   /* Third color for additional accents or backgrounds */
   --third-color: #ebd2be;
   /* Font family */
-  --font-family: "Quicksand", sans-serif;
+  --body-font-family: "Quicksand", sans-serif;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--body-font-family);
+}
+.btn {
+  background-color: var(--third-color);
+  border: 0;
+  outline: 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 5px 15px;
+  color: #fff;
+  border-radius: 15px;
+  font-weight: bold;
 }
