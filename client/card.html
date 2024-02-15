@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Donation</title>
+    <!-- <link rel="stylesheet" href=""> -->
 </head>
 <body>
-    <h1>Enter Your Card Details</h1>
+    <h1>Enter Your Card Details Here</h1>
     <label>Card Number</label>
     <input class="card-number" placeholder="1234 1234 1234 1234" type="text" required maxlength="16" />
     <div class="name">
@@ -21,5 +22,32 @@
         <label>CCV</label>
         <input class="card-name" placeholder="123" type="text" maxlength="3" required />
     </div>
+    <div class="zipcode">
+        <label>Zip Code</label>
+        <input class="card-name" placeholder="12345" type="text" maxlength="5" required />
+    </div>
+    <button class="donate-btn">Make a Donation</button>
+    <button class="delete-btn">Delete Information</button>
 </body>
 </html>
+
+<!-- /* Button Styles */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.donate-btn {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.delete-btn {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+ -->
