@@ -12,8 +12,12 @@ const AboutUs = () => {
                     <div className='p-2'>
                         <h2>Welcome to 'You Got A Paw In Me'</h2>
                         <p>
-                            About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. 
-                            About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here!
+                        We are a platform that provides a comprehensive website and mobile application dedicated to enhancing accessibility to therapy animals for individuals experiencing emotional distress or physical challenges. 
+                        
+                        This initiative seamlessly merges a passion for animals with a steadfast commitment to mental health awareness. By offering a platform that provides resources, connects users with therapy animals, and fosters a supportive community, we aim to empower individuals seeking assistance to find comfort and companionship in their journey towards healing.
+
+
+                        Thank you for joining us!
                         </p>
                         <Button variant="primary">Learn More</Button>
                     </div>
