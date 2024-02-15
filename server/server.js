@@ -58,12 +58,8 @@ const startServer = async () => {
         app.listen(PORT, () => {
             console.log(`Server running at http://localhost:${PORT}`);
         });
-    })
-
-    
-}
-
-startServer();
+    });
+};
     // export default client;
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
