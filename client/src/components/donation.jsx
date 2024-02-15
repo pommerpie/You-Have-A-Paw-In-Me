@@ -20,7 +20,7 @@ const Donation = () => {
                         Your donation to "You Got a Paw in ME" enables individuals in need to access therapy animals for emotional support and a compassionate community. Your support ensures that everyone, regardless of their challenges, can benefit from the healing power of animal companionship. Thank you for making a difference!
 
                         </p>
-                        <button className='btn donate-btn'>
+                        <button className='btn btn-primary'>
                             Donate
                         </button>
                     </div>
