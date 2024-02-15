@@ -6,11 +6,11 @@ const AboutUs = () => {
         <Container>
             <Row className="align-items-center">
                 <Col md={6}>
-                    <img src='https://placehold.co/600x400' alt="About Us" className="img-fluid" />
+                    <img src='images/bunny.jpeg' alt="About Us" className="thumbnail" />
                 </Col>
                 <Col md={6}>
                     <div className='p-2'>
-                        <h2>About Us</h2>
+                        <h2>Welcome to 'You Got A Paw In Me'</h2>
                         <p>
                             About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. 
                             About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here!

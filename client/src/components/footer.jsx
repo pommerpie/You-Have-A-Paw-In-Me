@@ -16,7 +16,7 @@ const Footer = () => {
       <section className='content'>
         <div className='logo'>
           <img src="images/logo.svg" alt="" />
-          <p>&copy; 2024 Therapy Animal Support Fund</p>
+          <p>&copy; 2024 You Got A Paw In Me</p>
         </div>
 
         <div className="icons">
