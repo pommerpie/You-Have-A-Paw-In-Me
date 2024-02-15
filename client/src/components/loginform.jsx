@@ -24,18 +24,22 @@ const Login = () => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
     try {
       const { data } = await login({
         variables: { ...formState },
       });
       if (data && data.login && data.login.token) {
         Auth.login(data.login.token);
+        setSuccessMessage('Logged in successfully.');
+        setErrorMessage('');
       } else {
-        console.error("Failed to get token from server response.");
+        setErrorMessage('Failed to get token from server response.');
+        setSuccessMessage('');
       }
     } catch (e) {
       console.error("Error occurred during login:", e);
+      setErrorMessage('An error occurred during login.');
+      setSuccessMessage('');
     }
 
     // clear form values
@@ -71,6 +75,14 @@ const Login = () => {
           </button>
         </div>
       </Form>
+
+      {error && <p>{error.message}</p>} {/* Display error if it exists */}
+      {/* Success message */}
+      {data && !error && (
+        <p>
+          Success! You are now logged in.{' '}
+        </p>
+      )}
     </div>
 
   );

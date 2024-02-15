@@ -1,7 +1,15 @@
 #hero {
-  min-height: 60vh;
   padding: 15px;
 }
+
+#hero .logged-out {
+  min-height: 60vh; /* Set a larger height when the user is logged out */
+}
+
+#hero .logged-in {
+  min-height: 40vh; /* Set a smaller height when the user is logged in */
+}
+
 #hero .content {
   display: flex;
   justify-content: center;
@@ -29,4 +37,11 @@
   .sign-up__wrapper {
     border: none;
   }
+}
+
+.welcome-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  text-align: center; 
 }
