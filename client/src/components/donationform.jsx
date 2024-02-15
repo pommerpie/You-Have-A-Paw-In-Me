@@ -1,52 +1,26 @@
-import React from 'react';
-import React, { useEffect } from 'react';
-import { loadStripe } from '@stripe/stripe-js';
-import { useLazyQuery } from '@apollo/client';
-import { idbPromise } from '../../utils/helpers';
+// src/components/DonationForm.js
+import React, { useState } from 'react';
 
-const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+const DonationForm = () => {
+  const [amount, setAmount] = useState('');
 
-const DonationPage = () => {
-  const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
-  useEffect(() => {
-    if (data) {
-      stripePromise.then((stripe) => {
-        stripe.redirectToCheckout({ sessionId: data.checkout.session });
-      });
-    }
-  }, [data]);
-  export default Donationform;
+  const handleDonate = () => {
+    // Implement donation logic using the state value (amount)
+  };
 
-  // const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
- const Cart = () => {
-   const [state, dispatch] = useStoreContext();
-
-   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
-
-
-   // import React, { useEffect } from 'react';//
-
-
- const DonationPage = () => {
-   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
-
-   useEffect(() => {
-     if (data) {
-       stripePromise.then((stripe) => {
-         stripe.redirectToCheckout({ sessionId: data.checkout.session });
-       });
-     }
-   }, [data]);
- export default Donationpage;
-
-const Donationpage = () => { 
   return (
-  <div>
+    <div>
       <h2>Make a Donation</h2>
-      <DonationForm />
+      <form>
+        <label>Amount:</label>
+        <input type="text" value={amount} onChange={(e) => setAmount(e.target.value)} />
+
+        <button type="button" onClick={handleDonate}>
+          Donate
+        </button>
+      </form>
     </div>
   );
 };
 
-
-export default Donationpage;
+export default DonationForm;

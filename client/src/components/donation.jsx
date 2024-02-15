@@ -17,7 +17,7 @@ const Donation = () => {
                             Donate here!
                         </h3>
                         <p>
-                        Something about how users can donate goes here! Something about how users can donate goes here! Something about how users can donate goes here! Something about how users can donate goes here! Something about how users can donate goes here! 
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem neque officiis optio dicta officia molestias totam veniam magnam odit magni quis nemo pariatur, voluptas consequuntur quam voluptatem illum adipisci doloribus minima praesentium incidunt! Veritatis, rerum!
                         </p>
                         <button className='btn donate-btn'>
                             Donate

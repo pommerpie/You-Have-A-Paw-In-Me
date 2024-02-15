@@ -12,8 +12,8 @@ const AboutUs = () => {
                     <div className='p-2'>
                         <h2>About Us</h2>
                         <p>
-                            About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. 
-                            About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here. About us goes here!
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget orci velit. Nulla facilisi.
+                            Proin id mi nec nisi condimentum bibendum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nihil assumenda in numquam magnam deleniti reprehenderit ad iste necessitatibus nulla sapiente, commodi porro nam. Accusamus eligendi expedita quia nisi laborum!
                         </p>
                         <Button variant="primary">Learn More</Button>
                     </div>
