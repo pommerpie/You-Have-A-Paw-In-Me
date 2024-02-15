@@ -63,11 +63,17 @@ const Login = () => {
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" name="password" value={formState.password} onChange={handleChange} placeholder="Password" required />
         </Form.Group>
-        
+        {/* <Form.Group className="mb-2" controlId="checkbox">
+          <Form.Check type="checkbox" label="Remember me" />
+        </Form.Group> */}
         <button type= "submit" className=" btn btn-primary">
           Login
         </button>
-      
+        {/* <div className="d-grid justify-content-end">
+          <button className="forgot-pass">
+            Forgot password?
+          </button>
+        </div> */}
       </Form>
 
       {error && <p>{error.message}</p>} {/* Display error if it exists */}
