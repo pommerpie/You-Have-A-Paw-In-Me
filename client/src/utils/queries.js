@@ -9,3 +9,14 @@ export const QUERY_ME = gql`
         }
     }
 `
+
+export const QUERY_PETS = gql`
+    query getPets {
+        getPets{
+            name
+            description
+            url
+            image
+        }
+    }
+`

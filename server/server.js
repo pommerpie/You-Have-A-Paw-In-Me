@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const axios = require('axios');
 const { ApolloServer, gql } = require('@apollo/server');
+const bodyParser = require('body-parser');
 //const { startStandaloneServer } = require('@apollo/server/standalone');
 const {expressMiddleware} = require('@apollo/server/express4');
 const { typeDefs, resolvers } = require('./schemas');
@@ -17,7 +18,7 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3005;
 const apiKey = process.env.API_KEY;
-const endpoint = `https://partners.every.org/v0.2/search/pets?apiKey${apiKey}`;
+const endpoint = `https://partners.every.org/v0.2/search/pets?apiKey=${apiKey}`;
 
 const client = new GraphQLClient(endpoint);
 
@@ -32,6 +33,7 @@ const server = new ApolloServer({
     resolvers,
 });
 
+app.use(bodyParser.json());
 server.start().then(() => {
     app.use('/graphql', expressMiddleware(server, {
         context: authMiddleware
@@ -41,11 +43,28 @@ server.start().then(() => {
 
 //app.use(bodyParser.json());
 
-app.post('/save-card', (req, res) => {
-    const { cardNumber, expiry, cvc } = req.body;
-    res.status(200).send('Card saved successfully');
-});
+const startServer = async () => {
 
+    await server.start()
+
+    app.use('/graphql', expressMiddleware(server, {context: authMiddleware}))
+    
+    app.post('/save-card', (req, res) => {
+        const { cardNumber, expiry, cvc } = req.body;
+        res.status(200).send('Card saved successfully');
+    });
+    
+    db.once('open', () => {     
+        app.listen(PORT, () => {
+            console.log(`Server running at http://localhost:${PORT}`);
+        });
+    })
+
+    
+}
+
+startServer();
+    // export default client;
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
     console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);

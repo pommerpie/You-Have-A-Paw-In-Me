@@ -1,6 +1,18 @@
+const { User } = require ('../models');
+const { Pet } = require ('../models')
+const {signToken, AuthenticationError} = require ('../utils/auth');
+const jwt = require ('jsonwebtoken');
+
+// const signToken = (user) => {
+//     const payload = {
+//         _id: user._id,
+//         email: user.email,
+//         username: user.username,
+//     };
+//     return jwt.sign(payload, process.env.JWT_SECRET, {expiresIn: '2h'});
+// }
 const User = require ('../models/User');
 const {signToken, AuthenticationError} = require ('../utils/auth');
-
 
 const resolvers = {
 
@@ -11,6 +23,15 @@ const resolvers = {
                 return userData;
             }
             throw new AuthenticationError('Not logged in');
+        },
+        getPets: async () => {
+            try {
+                const data = await Pet.find();
+                return data;
+            } catch (error) {
+                console.error('Error fetching pets:', error);
+                throw error;
+            }
         }
     },
     Mutation: {

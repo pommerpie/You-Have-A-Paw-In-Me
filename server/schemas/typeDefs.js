@@ -6,6 +6,13 @@ const typeDefs = `
         password: String
     }
 
+    type Pet {
+        name: String
+        description: String
+        url: String
+        images: String
+    }
+
     type Auth {
         token: ID
         user: User
@@ -13,6 +20,7 @@ const typeDefs = `
 
     type Query {
         me: User
+        getPets: [Pet]
     }
 
     type Mutation {
