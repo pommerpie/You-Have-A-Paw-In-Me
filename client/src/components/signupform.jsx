@@ -52,7 +52,7 @@ const Signup = () => {
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" name="password" value={formState.password} onChange={handleChange} placeholder="Password" required />
         </Form.Group>
-        <button type= "submit" className="login-btn btn">
+        <button type= "submit" className="btn btn-primary">
           Sign up
         </button>
         {error && <p>{error.message}</p>} {/* Display error if it exists */}

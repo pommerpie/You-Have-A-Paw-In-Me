@@ -66,7 +66,7 @@ const Login = () => {
         <Form.Group className="mb-2" controlId="checkbox">
           <Form.Check type="checkbox" label="Remember me" />
         </Form.Group>
-        <button type= "submit" className="login-btn btn">
+        <button type= "submit" className=" btn btn-primary">
           Login
         </button>
         <div className="d-grid justify-content-end">
