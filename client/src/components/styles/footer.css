@@ -1,0 +1,20 @@
+footer {
+  border-top: solid 2px rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
+}
+
+footer.container .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .logo {
+  margin-bottom: 20px;
+}
+.icons .social-container {
+  display: flex;
+  gap: 20px;
+}
+.icons .social-container a {
+  color: var(--third-color);
+}

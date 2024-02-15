@@ -1,43 +1,37 @@
-// src/components/SignupForm.js
-import React, { useState } from 'react';
-import axios from 'axios';
-import {useMutation} from '@apollo/client';
-import { ADD_USER } from '../utils/mutations';
- import Auth from '../utils/auth';
+import React, { useState } from "react";
+import { Form, Alert } from "react-bootstrap";
+import './styles/login.css';
 
-const SignupForm = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
 
-  const handleSignup = async () => {
-    try {
-      const response = await axios.post('/api/signup', { email, password });
-      console.log(response.data);
-      //want to add success message and redirect after user sign up
-    } catch (error) {
-      console.error('Signup error:', error.response.data.error);
-      setError(error.response.data.error);
-    }
-  };
+
+const Signup = () => {
+
 
   return (
-    <div>
-      <h2>Create Account</h2>
-      <form>
-        <label>Email:</label>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+    <div className="sign-up__wrapper">
+      <div className="sign-up__backdrop"></div>
+      <Form className="hero-form p-4 bg-white rounded">
 
-        <label>Password:</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-
-        <button type="button" onClick={handleSignup}>
-          Create Account
+        <Form.Group className="mb-2" controlId="username">
+          <Form.Label>Username</Form.Label>
+          <Form.Control type="text" placeholder="Username" required />
+        </Form.Group>
+        <Form.Group className="mb-2" controlId="email">
+          <Form.Label>Email</Form.Label>
+          <Form.Control type="email" placeholder="Email" required />
+        </Form.Group>
+        <Form.Group className="mb-2" controlId="password">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" required />
+        </Form.Group>
+        <button className="login-btn btn">
+          Sign up
         </button>
-        {error && <p>{error}</p>} {/* Display error if it exists */}
-      </form>
+      </Form>
     </div>
+
   );
 };
 
-export default SignupForm;
+export default Signup;
+

@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap");
+
+/* css variables for colors */
+:root {
+  /* Primary color for buttons, links, etc. */
+  --primary-color: #45062e;
+
+  /* Secondary color for accents, highlights, etc. */
+  --secondary-color: #e5a4cb;
+
+  /* Third color for additional accents or backgrounds */
+  --third-color: #ebd2be;
+  /* Font family */
+  --body-font-family: "Quicksand", sans-serif;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--body-font-family);
+}
+.btn {
+  background-color: var(--third-color);
+  border: 0;
+  outline: 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 5px 15px;
+  color: #fff;
+  border-radius: 15px;
+  font-weight: bold;
+}

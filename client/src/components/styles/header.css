@@ -1,0 +1,26 @@
+.logo img {
+  max-width: 60px;
+}
+.app-header {
+  align-items: center;
+  padding: 15px;
+  display: flex;
+}
+.btn-container {
+  text-align: right;
+}
+.app-header .nav-link {
+  color: var(--primary-color);
+}
+.navbar-toggler {
+  padding: 5px;
+}
+.app-header .justify-content-center {
+  justify-content: flex-end !important;
+  align-items: flex-start;
+}
+@media screen and (max-width: 768px) {
+  .app-header .btn-container {
+    display: none;
+  }
+}

@@ -1,0 +1,15 @@
+.LandAbout {
+    max-width: 65%;
+    align-items: center;
+    font-style: italic;
+    font-family: 'Comfortaa', cursive;
+}
+
+a {
+    margin: 0;
+}
+
+a:hover {
+    color: #6e527c;
+    transition: color 0.3s ease;
+}
