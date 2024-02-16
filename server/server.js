@@ -27,7 +27,6 @@ app.use(cors({
     origin: 'http://localhost:3009'
 }));
 
-
 const server = new ApolloServer({
     typeDefs,
     resolvers,
@@ -48,6 +47,14 @@ const startServer = async () => {
     await server.start()
 
     app.use('/graphql', expressMiddleware(server, {context: authMiddleware}))
+
+    if (process.env.NODE_ENV === 'production') {
+        app.use(express.static(path.join(__dirname, '../client/dist')));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+      });
+    }
     
     app.post('/save-card', (req, res) => {
         const { cardNumber, expiry, cvc } = req.body;
@@ -60,8 +67,6 @@ const startServer = async () => {
         });
     });
 };
-    // export default client;
-app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
-    console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
-});
+
+startServer();
+
