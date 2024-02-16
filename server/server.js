@@ -32,12 +32,12 @@ const server = new ApolloServer({
     resolvers,
 });
 
-app.use(bodyParser.json());
-server.start().then(() => {
-    app.use('/graphql', expressMiddleware(server, {
-        context: authMiddleware
-      }));
-});
+// app.use(bodyParser.json());
+// server.start().then(() => {
+ //   app.use('/graphql', expressMiddleware(server, {
+   //     context: authMiddleware
+     // }));
+// });
 
 
 //app.use(bodyParser.json());
@@ -45,6 +45,9 @@ server.start().then(() => {
 const startServer = async () => {
 
     await server.start()
+
+    app.use(express.urlencoded({ extended: false }));
+    app.use(express.json());
 
     app.use('/graphql', expressMiddleware(server, {context: authMiddleware}))
 
