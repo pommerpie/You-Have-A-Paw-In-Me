@@ -14,6 +14,7 @@ const db = require('./config/connection');
 const { User } = require('./models');
 const {GraphQLClient} = require('graphql-request');
 require('dotenv').config();
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3005;
